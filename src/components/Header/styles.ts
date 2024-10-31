@@ -38,4 +38,6 @@ export const LinkCart = styled.a`
   }
 `
 
+export const ContainerHeaderBar = styled.div``
+
 export default HeaderBar
