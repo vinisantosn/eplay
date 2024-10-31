@@ -1,49 +1,30 @@
 import { title } from 'process'
 import Product from '../Product'
 import { Container, List } from './styles'
+import Game from '../../models/Game'
 
 export type Props = {
   title: string
   background: 'gray' | 'black'
+  games: Game[]
 }
 
-const ProductList = ({ background, title }: Props) => (
+const ProductList = ({ background, title, games }: Props) => (
   <Container background={background}>
     <div className="container">
       <h2>{title}</h2>
       <List>
-        <Product
-          title="Jgo"
-          system="windows"
-          category="Ação"
-          description=" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem maxime delectus, aliquid reiciendis cupiditate, repudiandae rem omnis magni voluptate excepturi eligendi, in pariatur ullam soluta adipisci natus rerum? Quo, expedita."
-          image="//placehold.co/222x250"
-          infos={['-10%', 'R$ 150']}
-        />
-        <Product
-          title="Jgo"
-          system="windows"
-          category="Ação"
-          description=" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem maxime delectus, aliquid reiciendis cupiditate, repudiandae rem omnis magni voluptate excepturi eligendi, in pariatur ullam soluta adipisci natus rerum? Quo, expedita."
-          image="//placehold.co/222x250"
-          infos={['-10%', 'R$ 150']}
-        />
-        <Product
-          title="Jgo"
-          system="windows"
-          category="Ação"
-          description=" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem maxime delectus, aliquid reiciendis cupiditate, repudiandae rem omnis magni voluptate excepturi eligendi, in pariatur ullam soluta adipisci natus rerum? Quo, expedita."
-          image="//placehold.co/222x250"
-          infos={['-10%', 'R$ 150']}
-        />
-        <Product
-          title="Jgo"
-          system="windows"
-          category="Ação"
-          description=" Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem maxime delectus, aliquid reiciendis cupiditate, repudiandae rem omnis magni voluptate excepturi eligendi, in pariatur ullam soluta adipisci natus rerum? Quo, expedita."
-          image="//placehold.co/222x250"
-          infos={['-10%', 'R$ 150']}
-        />
+        {games.map((game) => (
+          <Product
+            key={game.id}
+            title={game.title}
+            system={game.system}
+            category={game.category}
+            description={game.description}
+            image={game.image}
+            infos={game.infos}
+          />
+        ))}
       </List>
     </div>
   </Container>
